@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'carousel_options.dart';
+import 'carousel_slider_options.dart';
 import 'carousel_state.dart';
 import 'utils.dart';
 
-abstract class CarouselController {
+abstract class CarouselSliderController {
   bool get ready;
 
   Future<Null> get onReady;
@@ -23,10 +23,10 @@ abstract class CarouselController {
 
   void stopAutoPlay();
 
-  factory CarouselController() => CarouselControllerImpl();
+  factory CarouselSliderController() => CarouselControllerImpl();
 }
 
-class CarouselControllerImpl implements CarouselController {
+class CarouselControllerImpl implements CarouselSliderController {
   final Completer<Null> _readyCompleter = Completer<Null>();
 
   CarouselState? _state;
@@ -134,7 +134,7 @@ class CarouselControllerImpl implements CarouselController {
   /// Starts the controlled [CarouselSlider] autoplay.
   ///
   /// The carousel will only autoPlay if the [autoPlay] parameter
-  /// in [CarouselOptions] is true.
+  /// in [CarouselSliderOptions] is true.
   void startAutoPlay() {
     _state!.onResumeTimer();
   }
@@ -142,7 +142,7 @@ class CarouselControllerImpl implements CarouselController {
   /// Stops the controlled [CarouselSlider] from autoplaying.
   ///
   /// This is a more on-demand way of doing this. Use the [autoPlay]
-  /// parameter in [CarouselOptions] to specify the autoPlay behaviour of the carousel.
+  /// parameter in [CarouselSliderOptions] to specify the autoPlay behaviour of the carousel.
   void stopAutoPlay() {
     _state!.onResetTimer();
   }

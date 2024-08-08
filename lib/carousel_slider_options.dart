@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 enum CarouselPageChangedReason { timed, manual, controller }
 
 enum CenterPageEnlargeStrategy { scale, height, zoom }
 
-class CarouselOptions {
+class CarouselSliderOptions {
   /// Set carousel height and overrides any existing [aspectRatio].
   final double? height;
 
@@ -133,38 +133,38 @@ class CarouselOptions {
   /// Exposed clipBehavior of PageView
   final Clip clipBehavior;
 
-  CarouselOptions({
+  CarouselSliderOptions({
     this.height,
-    this.aspectRatio: 16 / 9,
-    this.viewportFraction: 0.8,
-    this.initialPage: 0,
-    this.enableInfiniteScroll: true,
-    this.animateToClosest: true,
-    this.reverse: false,
-    this.autoPlay: false,
-    this.autoPlayInterval: const Duration(seconds: 4),
+    this.aspectRatio = 16 / 9,
+    this.viewportFraction = 0.8,
+    this.initialPage = 0,
+    this.enableInfiniteScroll = true,
+    this.animateToClosest = true,
+    this.reverse = false,
+    this.autoPlay = false,
+    this.autoPlayInterval = const Duration(seconds: 4),
     this.autoPlayAnimationDuration = const Duration(milliseconds: 800),
-    this.autoPlayCurve: Curves.fastOutSlowIn,
+    this.autoPlayCurve = Curves.fastOutSlowIn,
     this.enlargeCenterPage = false,
     this.onPageChanged,
     this.onScrolled,
     this.scrollPhysics,
     this.pageSnapping = true,
-    this.scrollDirection: Axis.horizontal,
-    this.pauseAutoPlayOnTouch: true,
-    this.pauseAutoPlayOnManualNavigate: true,
-    this.pauseAutoPlayInFiniteScroll: false,
+    this.scrollDirection = Axis.horizontal,
+    this.pauseAutoPlayOnTouch = true,
+    this.pauseAutoPlayOnManualNavigate = true,
+    this.pauseAutoPlayInFiniteScroll = false,
     this.pageViewKey,
-    this.enlargeStrategy: CenterPageEnlargeStrategy.scale,
-    this.enlargeFactor: 0.3,
-    this.disableCenter: false,
+    this.enlargeStrategy = CenterPageEnlargeStrategy.scale,
+    this.enlargeFactor = 0.3,
+    this.disableCenter = false,
     this.padEnds = true,
-    this.clipBehavior: Clip.hardEdge,
+    this.clipBehavior = Clip.hardEdge,
   });
 
-  ///Generate new [CarouselOptions] based on old ones.
+  ///Generate new [CarouselSliderOptions] based on old ones.
 
-  CarouselOptions copyWith(
+  CarouselSliderOptions copyWith(
           {double? height,
           double? aspectRatio,
           double? viewportFraction,
@@ -190,7 +190,7 @@ class CarouselOptions {
           bool? disableCenter,
           Clip? clipBehavior,
           bool? padEnds}) =>
-      CarouselOptions(
+      CarouselSliderOptions(
         height: height ?? this.height,
         aspectRatio: aspectRatio ?? this.aspectRatio,
         viewportFraction: viewportFraction ?? this.viewportFraction,

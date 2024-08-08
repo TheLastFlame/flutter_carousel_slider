@@ -2,8 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class CarouselState {
-  /// The [CarouselOptions] to create this state
-  CarouselOptions options;
+  /// The [CarouselSliderOptions] to create this state
+  CarouselSliderOptions options;
 
   /// [pageController] is created using the properties passed to the constructor
   /// and can be used to control the [PageView] it is passed to.
